@@ -1,9 +1,10 @@
 import tweepy
+import os
 
-consumer_key = 'dRzzqvP2ronqIe3lSiOHg3hLC'
-consumer_secret = '3Qw3dffDyUHPRirNgBzmNMjTIAmuoXTf3Y5y6mpvNixPHu9h6C'
-access_token = '1163471772722847748-7IiOpJNJMCg9EQiKTX2eD4ihdMpmLc'
-access_token_secret = 'xelpYWILujObf4Ec5zTN2FS80ANxpQgqe1DBzrbWLVJRy'
+consumer_key = os.environ['CONSUMER_KEY']
+consumer_secret = os.environ['CONSUMER_SECRET']
+access_token = os.environ['ACCESS_TOKEN']
+access_token_secret = os.environ['ACCESS_TOKEN_SECRET']
 
 def OAuth():
     try:
@@ -21,3 +22,5 @@ check = raw_input('Are you sure you want to tweet "' + tweet + '"(y/N)')
 if check == 'y':
     api.update_status(tweet)
     print('a tweet has been posted')
+else:
+    print('your tweet has been cancelled')
