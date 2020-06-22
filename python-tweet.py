@@ -16,5 +16,8 @@ def OAuth():
 oauth = OAuth()
 api = tweepy.API(oauth)
 
-api.update_status('I am posting a tweet from python')
-print('a tweet has been posted')
+tweet = raw_input('Tweet: ')
+check = raw_input('Are you sure you want to tweet "' + tweet + '"(y/N)')
+if check == 'y':
+    api.update_status(tweet)
+    print('a tweet has been posted')
